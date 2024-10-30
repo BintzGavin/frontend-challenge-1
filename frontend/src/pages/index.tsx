@@ -1,10 +1,23 @@
+import { Container, Title, Button, Stack } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
+
 export default function MainPage() {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex h-full items-center justify-center text-sm text-gray-400 text-center">
-      <div className="space-y-2">
-        <p>Good luck!</p>
-        <p>Read the README.md very carfully.</p>
-      </div>
-    </div>
+    <Container size="sm" className="py-8">
+      <Title order={2} mb="xl" className="text-center">Machine Readable Files Portal</Title>
+      <Stack>
+        <Button onClick={() => navigate("/upload")}>
+          Upload Claims File
+        </Button>
+        <Button onClick={() => navigate("/approval")}>
+          Review & Approve Claims
+        </Button>
+        <Button onClick={() => navigate("/public-mrf")}>
+          View Public MRF Files
+        </Button>
+      </Stack>
+    </Container>
   );
 }
